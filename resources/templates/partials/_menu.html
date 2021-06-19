@@ -1,0 +1,82 @@
+<div id="sidebar" class="active">
+    <div class="sidebar-wrapper active">
+        <div class="sidebar-header">
+            <div class="d-flex justify-content-between">
+                <div class="logo">
+                    <a href="index.html"><img src="{{ url_for('static',filename='images/logo/logo2.png')}}" alt="Logo" srcset=""></a>
+                </div>
+                <div class="toggler">
+                    <a href="#" class="sidebar-hide d-xl-none d-block"><i class="bi bi-x bi-middle"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="sidebar-menu">
+            <ul class="menu">
+                <li class="sidebar-title">Menu</li>
+                {% for value in g.menu %}
+                    <li class="sidebar-item
+                        {% if request.url_rule.endpoint == value.url %}
+                            active has-sub
+                        {% endif %}
+                        ">
+                        <a href="{{ url_for(value.url) }}" class='sidebar-link'>
+                            <i class="{{ value.icon }}"></i>
+                            <span>{{value.name}}</span>
+                            {% if value.name == 'Categorias' %}
+                                <ul class="submenu ">
+                                    <li class="submenu-item ">
+                                        <a href="{{ url_for('subcategories')}}">Lacteos</a>
+                                    </li>
+                                    <li class="submenu-item ">
+                                        <a href="">Frutas y Verduras</a>
+                                    </li>
+                                    <li class="submenu-item ">
+                                        <a href="{{ url_for('subcategories')}}">Desayuno</a>
+                                    </li>
+                                    <li class="submenu-item ">
+                                        <a href="component-button.html">Congelados</a>
+                                    </li>
+                                    <li class="submenu-item ">
+                                        <a href="component-card.html">Aguas y bebidas</a>
+                                    </li>
+                                    <li class="submenu-item ">
+                                        <a href="component-carousel.html">Tecnologias</a>
+                                    </li>
+                                    <li class="submenu-item ">
+                                        <a href="component-dropdown.html">Abarrotes</a>
+                                    </li>
+                                    <li class="submenu-item ">
+                                        <a href="component-list-group.html">Dormitorio</a>
+                                    </li>
+                                    <li class="submenu-item ">
+                                        <a href="component-modal.html">Lacteos</a>
+                                    </li>
+                                    <li class="submenu-item ">
+                                        <a href="component-navs.html">Comidas y rostizados</a>
+                                    </li>
+                                    <li class="submenu-item ">
+                                        <a href="component-pagination.html">Panaderia y Pasteleria</a>
+                                    </li>
+                                    <li class="submenu-item ">
+                                        <a href="component-progress.html">Embutidos y Fiambres</a>
+                                    </li>
+                                    <li class="submenu-item ">
+                                        <a href="component-spinner.html">Carnes, Aves y Pescados</a>
+                                    </li>
+                                    <li class="submenu-item ">
+                                        <a href="component-tooltip.html">Limpieza</a>
+                                    </li>
+                                </ul>
+                                <li>
+                            {% endif%}
+                        </a>
+                        
+                    </li>
+                {% endfor %}
+                
+            </ul>
+            
+        </div>
+        <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
+    </div>
+</div>
